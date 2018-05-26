@@ -61,3 +61,15 @@ class gene_class_prob(BaseEstimator, TransformerMixin):
                         t[ind, i] = self.gene_class_probs[gene_name][i]
 
         return t
+
+
+class cat2binary(BaseEstimator, TransformerMixin):
+
+    def __init__(self, key):
+        self.key = key
+
+    def fit(self, x, y=None):
+        return self
+
+    def transform(self, data):
+        return data[self.key]
